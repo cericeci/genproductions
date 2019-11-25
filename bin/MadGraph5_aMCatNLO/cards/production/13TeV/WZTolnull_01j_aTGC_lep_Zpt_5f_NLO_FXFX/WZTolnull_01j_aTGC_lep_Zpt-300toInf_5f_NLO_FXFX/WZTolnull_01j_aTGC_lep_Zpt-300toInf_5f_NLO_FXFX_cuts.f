@@ -83,7 +83,7 @@ c
          do j=i+1,nexternal
             if ((abs(ipdg(i)).eq.11.or.abs(ipdg(i)).eq.13.or.
      &        abs(ipdg(i)).eq.15).and.(ipdg(i).eq.-ipdg(j))) then
-              if (ptZ(p(0,i),p(0,j)).gt.200) then
+              if (ptZ(p(0,i),p(0,j)).lt.300) then
                   passcuts_user=.false.
                   return
               endif
@@ -446,8 +446,10 @@ c Masses of external particles
       double precision pmass(nexternal)
       common/to_mass/pmass
 c PDG codes of particles
+      integer maxflow
+      parameter (maxflow=999)
       integer idup(nexternal,maxproc),mothup(2,nexternal,maxproc),
-     &     icolup(2,nexternal,999),niprocs
+     &     icolup(2,nexternal,maxflow),niprocs
       common /c_leshouche_inc/idup,mothup,icolup,niprocs
       logical passcuts_user
       external passcuts_user
@@ -903,9 +905,10 @@ c-----
       implicit none
       include "genps.inc"
       include 'nexternal.inc'
-
+      integer maxflow
+      parameter (maxflow=999)
       integer idup(nexternal,maxproc),mothup(2,nexternal,maxproc),
-     &     icolup(2,nexternal,999),niprocs
+     &     icolup(2,nexternal,maxflow),niprocs
 c      include 'leshouche.inc'
       common /c_leshouche_inc/idup,mothup,icolup,niprocs
       integer IDUP_tmp(nexternal),i
@@ -921,9 +924,11 @@ c
       implicit none
       include "genps.inc"
       include 'nexternal.inc'
+      integer    maxflow
+      parameter (maxflow=999)
       integer idup(nexternal,maxproc)
       integer mothup(2,nexternal,maxproc)
-      integer icolup(2,nexternal,999)
+      integer icolup(2,nexternal,maxflow)
       include 'born_leshouche.inc'
       integer IDUP_tmp(nexternal),i
 c
