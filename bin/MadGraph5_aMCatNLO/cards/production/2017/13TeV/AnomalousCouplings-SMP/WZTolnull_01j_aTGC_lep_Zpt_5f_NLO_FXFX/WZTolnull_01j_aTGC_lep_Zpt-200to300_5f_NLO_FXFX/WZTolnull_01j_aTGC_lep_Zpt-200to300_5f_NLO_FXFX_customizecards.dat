@@ -6,3 +6,4 @@ set param_card dim6 5 0.000000e+00
 set param_card dim6 6 0.000000e+00
 set param_card dim6 7 0.000000e+00
 set param_card dim6 8 0.000000e+00
+set param_card decay 15 0.000000e+00

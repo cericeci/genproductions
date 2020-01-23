@@ -71,7 +71,7 @@ make_gridpack () {
     MGBASEDIR=mgbasedir
     
     MG_EXT=".tar.gz"
-    MG=MG5_aMC_v2.6.0$MG_EXT
+    MG=MG5_aMC_v2.6.5$MG_EXT
     MGSOURCE=https://cms-project-generators.web.cern.ch/cms-project-generators/$MG
     
     MGBASEDIRORIG=$(echo ${MG%$MG_EXT} | tr "." "_")
@@ -188,7 +188,7 @@ make_gridpack () {
       if [ -e $CARDSDIR/${name}_extramodels.dat ]; then
         echo "Loading extra models specified in $CARDSDIR/${name}_extramodels.dat"
         #strip comments
-        sed 's:#.*$::g' $CARDSDIR/${name}_extramodels.dat | while read model
+        sed 's:#.*$::g' $CARDSDIR/${name}_extramodels.dat | while read -r model || [ -n "$model" ]
         do
           #get needed BSM model
           if [[ $model = *[!\ ]* ]]; then
@@ -204,6 +204,10 @@ make_gridpack () {
             else 
               echo "A BSM model is specified but it is not in a standard archive (.zip or .tar)"
             fi
+            echo "Now I'm here:" 
+            echo $PWD
+            echo cp /afs/cern.ch/user/c/cericeci/restrict_no_cbmass_cwwwcbcw.dat  $PWD/$model
+            cp /afs/cern.ch/user/c/cericeci/restrict_no_cbmass_cwwwcbcw.dat  ./EWdim6NLO/
             cd ..
           fi
         done
@@ -536,7 +540,7 @@ make_gridpack () {
       if [ -e $CARDSDIR/${name}_madspin_card.dat ]; then
         echo "import $WORKDIR/unweighted_events.lhe.gz" > madspinrun.dat
         cat $CARDSDIR/${name}_madspin_card.dat >> madspinrun.dat
-        cat madspinrun.dat | $WORKDIR/$MGBASEDIRORIG/MadSpin/madspin
+        $WORKDIR/$MGBASEDIRORIG/MadSpin/madspin madspinrun.dat 
         rm madspinrun.dat
         rm -rf tmp*
         cp $CARDSDIR/${name}_madspin_card.dat $WORKDIR/process/madspin_card.dat
@@ -614,14 +618,21 @@ if [ -n "$5" ]
   then
     scram_arch=${5}
   else
-    scram_arch=slc6_amd64_gcc630 #slc6_amd64_gcc481
+    scram_arch=slc7_amd64_gcc730 #slc6_amd64_gcc481
+fi
+
+# Require OS and scram_arch to be consistent
+export SYSTEM_RELEASE=`cat /etc/redhat-release`
+if { [[ $SYSTEM_RELEASE == *"release 6"* ]] && [[ $scram_arch == *"slc7"* ]]; } || { [[ $SYSTEM_RELEASE == *"release 7"* ]] && [[ $scram_arch == *"slc6"* ]]; }; then
+  echo "Mismatch between architecture (${scram_arch}) and OS (${SYSTEM_RELEASE})"
+  if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
 fi
 
 if [ -n "$6" ]
   then
     cmssw_version=${6}
   else
-    cmssw_version=CMSSW_9_3_8 #CMSSW_7_1_30
+    cmssw_version=CMSSW_9_3_16 #CMSSW_7_1_30
 fi
  
 # jobstep can be 'ALL','CODEGEN', 'INTEGRATE', 'MADSPIN'

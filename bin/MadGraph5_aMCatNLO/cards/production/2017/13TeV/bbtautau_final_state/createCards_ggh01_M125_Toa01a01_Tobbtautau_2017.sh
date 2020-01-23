@@ -20,3 +20,8 @@ do
     cd ../../
     echo the cards are created for $dir 
 done
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
