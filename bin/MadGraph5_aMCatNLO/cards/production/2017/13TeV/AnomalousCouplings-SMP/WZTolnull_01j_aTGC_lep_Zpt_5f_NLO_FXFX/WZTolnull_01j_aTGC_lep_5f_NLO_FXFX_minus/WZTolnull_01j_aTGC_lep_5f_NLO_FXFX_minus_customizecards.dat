@@ -1,0 +1,9 @@
+set dim6 1 3
+set dim6 2 4
+set dim6 3 150
+set dim6 4 100
+set dim6 5 100
+set dim6 6 100
+set dim6 7 100
+set dim6 8 100
+set param_card decay 15 0.000000e+00
