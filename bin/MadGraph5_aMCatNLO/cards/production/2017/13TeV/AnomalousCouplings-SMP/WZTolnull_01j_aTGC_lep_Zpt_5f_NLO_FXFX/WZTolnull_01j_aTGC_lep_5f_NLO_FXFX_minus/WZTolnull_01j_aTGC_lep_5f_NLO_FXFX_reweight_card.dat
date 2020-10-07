@@ -1227,3 +1227,57 @@ set dim6 4 0
 set dim6 6 0
 set dim6 7 0
 launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 6 10
+set dim6 4 0
+set dim6 5 0
+set dim6 7 0
+launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 6 -10
+set dim6 4 0
+set dim6 5 0
+set dim6 7 0
+launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 7 10
+set dim6 4 0
+set dim6 6 0
+set dim6 5 0
+launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 7 -10
+set dim6 4 0
+set dim6 6 0
+set dim6 5 0
+launch
+set dim6 5 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 8 10
+set dim6 4 0
+set dim6 6 0
+set dim6 7 0
+launch
+set dim6 5 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 8 -10
+set dim6 4 0
+set dim6 6 0
+set dim6 7 0
+launch

@@ -1123,43 +1123,25 @@ set dim6 8 0
 set dim6 1 0
 set dim6 2 0
 set dim6 3 0
+set dim6 4 100
+set dim6 5 0
+set dim6 6 0
+set dim6 7 0
+launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 4 50
+set dim6 5 0
+set dim6 6 0
+set dim6 7 0
+launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
 set dim6 4 10
-set dim6 5 0
-set dim6 6 0
-set dim6 7 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 4 5
-set dim6 5 0
-set dim6 6 0
-set dim6 7 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 4 1
-set dim6 5 0
-set dim6 6 0
-set dim6 7 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 4 -1
-set dim6 5 0
-set dim6 6 0
-set dim6 7 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 4 -5
 set dim6 5 0
 set dim6 6 0
 set dim6 7 0
@@ -1177,8 +1159,17 @@ set dim6 8 0
 set dim6 1 0
 set dim6 2 0
 set dim6 3 0
-set dim6 5 500
-set dim6 4 0
+set dim6 4 -50
+set dim6 5 0
+set dim6 6 0
+set dim6 7 0
+launch
+set dim6 8 0
+set dim6 1 0
+set dim6 2 0
+set dim6 3 0
+set dim6 4 -100
+set dim6 5 0
 set dim6 6 0
 set dim6 7 0
 launch
@@ -1204,7 +1195,7 @@ set dim6 8 0
 set dim6 1 0
 set dim6 2 0
 set dim6 3 0
-set dim6 5 50
+set dim6 5 10
 set dim6 4 0
 set dim6 6 0
 set dim6 7 0
@@ -1213,7 +1204,7 @@ set dim6 8 0
 set dim6 1 0
 set dim6 2 0
 set dim6 3 0
-set dim6 5 100
+set dim6 5 -10
 set dim6 4 0
 set dim6 6 0
 set dim6 7 0
@@ -1222,7 +1213,7 @@ set dim6 8 0
 set dim6 1 0
 set dim6 2 0
 set dim6 3 0
-set dim6 5 500
+set dim6 5 -50
 set dim6 4 0
 set dim6 6 0
 set dim6 7 0
@@ -1231,52 +1222,7 @@ set dim6 8 0
 set dim6 1 0
 set dim6 2 0
 set dim6 3 0
-set dim6 6 1000
-set dim6 4 0
-set dim6 5 0
-set dim6 7 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 6 -1000
-set dim6 4 0
-set dim6 5 0
-set dim6 7 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 7 1000
-set dim6 4 0
-set dim6 6 0
-set dim6 5 0
-launch
-set dim6 8 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 7 -1000
-set dim6 4 0
-set dim6 6 0
-set dim6 5 0
-launch
-set dim6 5 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 8 1000
-set dim6 4 0
-set dim6 6 0
-set dim6 7 0
-launch
-set dim6 5 0
-set dim6 1 0
-set dim6 2 0
-set dim6 3 0
-set dim6 8 -1000
+set dim6 5 -100
 set dim6 4 0
 set dim6 6 0
 set dim6 7 0

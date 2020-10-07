@@ -144,12 +144,15 @@ make_gridpack () {
         cat $CARDSDIR/${name}*.patch | patch -p1
       fi
     
-      LHAPDFCONFIG=`echo "$LHAPDF_DATA_PATH/../../bin/lhapdf-config"`
-    
+      #LHAPDFCONFIG=`echo "$LHAPDF_DATA_PATH/../../bin/lhapdf-config"`
+      LHAPDFCONFIG='/nfs/fanae/user/carlosec/WZ_NNLO_gae_newrecipe/localLHAPDF/bin/lhapdf-config'
       LHAPDFINCLUDES=`$LHAPDFCONFIG --incdir`
       LHAPDFLIBS=`$LHAPDFCONFIG --libdir`
       export BOOSTINCLUDES=`scram tool tag boost INCLUDE`
-    
+      #echo $LHAPDFCONFIG
+      #echo $LHAPDFINCLUDES
+      #echo $LHAPDFLIBS
+ 
       echo "set auto_update 0" > mgconfigscript
       echo "set automatic_html_opening False" >> mgconfigscript
       if [ $iscmsconnect -gt 0 ]; then
@@ -222,6 +225,11 @@ make_gridpack () {
               tar xavf ../$model
             else 
               echo "A BSM model is specified but it is not in a standard archive (.zip or .tar)"
+            fi
+            if [ -e $CARDSDIR/restrict* ]; then
+              echo "copying custom restrict file"
+              echo cp $CARDSDIR/restrict* $PWD/${model/.tar.gz/''}
+              cp $CARDSDIR/restrict* ${model/.tar.gz/''}
             fi
             cd ..
           fi
@@ -317,10 +325,10 @@ make_gridpack () {
       else
         LHAPDFCONFIG=`echo "$LHAPDF_DATA_PATH/../../bin/lhapdf-config"`
       fi
-    
+      echo $LHAPDFCONFIG 
       #make sure env variable for pdfsets points to the right place
       export LHAPDF_DATA_PATH=`$LHAPDFCONFIG --datadir`  
-      
+      #echo $LHAPDF_DAT_PATH
     
       if [ "$name" == "interactive" ]; then
         set +e
@@ -598,7 +606,7 @@ if [ -n "$5" ]
   then
     scram_arch=${5}
   else
-    scram_arch=slc6_amd64_gcc630 #slc6_amd64_gcc481
+    scram_arch=slc7_amd64_gcc730 #slc6_amd64_gcc481 #slc7_amd64_gcc730 #slc6_amd64_gcc481 _slc7_amd64_gcc730_CMSSW_9_3_16
 fi
 
 # Require OS and scram_arch to be consistent
@@ -612,7 +620,7 @@ if [ -n "$6" ]
   then
     cmssw_version=${6}
   else
-    cmssw_version=CMSSW_9_3_16 #CMSSW_7_1_30
+    cmssw_version=CMSSW_9_3_16 #CMSSW_9_3_16 #CMSSW_7_1_30
 fi
  
 # jobstep can be 'ALL','CODEGEN', 'INTEGRATE', 'MADSPIN'
